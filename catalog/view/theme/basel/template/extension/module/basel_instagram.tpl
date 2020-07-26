@@ -25,22 +25,20 @@
 <?php if ($full_width) { ?><div class="container"><?php } ?>
 
 <script>
-	(function($){
-		$(window).on('load', function(){
-			$.instagramFeed({
-				'username': "<?php echo $username; ?>",
-				'container': "#instafeed<?php echo $module; ?>",
-				'callback': null,
-				'styling': true,
-				'items': '<?php echo $limit; ?>',
-				'margin': <?php echo $padding; ?>,
-				<?php if ($resolution) { ?>
-				'image_size': 640,
-				<?php } else { ?>
-				'image_size': 320,
-				<?php } ?>
-				'on_error': console.error
-			}); 
-		});
-	})(jQuery);
+$( window ).load(function() { 		
+		var feed = new Instafeed({
+		get: 'user',
+		userId: '<?php echo $username; ?>',
+		accessToken: '<?php echo $access_token; ?>',
+		target: 'instafeed<?php echo $module; ?>',
+		limit: '<?php echo $limit; ?>',
+		template: '<a href="{\{\link\}\}" target="_blank" class="item insta-item" style="padding:<?php echo $padding/2; ?>px;"><div style="position:absolute;top:<?php echo $padding/2; ?>px;right:<?php echo $padding/2; ?>px;bottom:<?php echo $padding/2; ?>px;left:<?php echo $padding/2; ?>px;background-image:url(\'{\{\image\}\}\');background-position:center center;background-size:cover;"></div><img src="catalog/view/theme/basel/image/insta-filler.png" /><span class="hover_fill" style="top:<?php echo $padding/2; ?>px;right:<?php echo $padding/2; ?>px;bottom:<?php echo $padding/2; ?>px;left:<?php echo $padding/2; ?>px;"></span></a>',
+		<?php if ($resolution) { ?>
+		resolution: 'standard_resolution'
+		<?php } else { ?>
+		resolution: 'low_resolution'
+		<?php } ?>
+		 });
+feed.run();
+});
 </script>

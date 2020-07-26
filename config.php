@@ -1,15 +1,15 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://opencart-447800-1402268.cloudwaysapps.com/');
+define('HTTP_SERVER', 'http://localhost/OpenCart/OpenCart/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://opencart-447800-1402268.cloudwaysapps.com/');
+define('HTTPS_SERVER', 'http://localhost/OpenCart/OpenCart/');
 
 // DIR
-define('DIR_APPLICATION', '/home/447800.cloudwaysapps.com/chxcqckfzd/public_html/catalog/');
-define('DIR_SYSTEM', '/home/447800.cloudwaysapps.com/chxcqckfzd/public_html/system/');
-define('DIR_IMAGE', '/home/447800.cloudwaysapps.com/chxcqckfzd/public_html/image/');
-define('DIR_STORAGE', '/home/447800.cloudwaysapps.com/chxcqckfzd/public_html/storage/');
+define('DIR_APPLICATION', 'C:/xampp/htdocs/opencart/OpenCart/catalog/');
+define('DIR_SYSTEM', 'C:/xampp/htdocs/opencart/OpenCart/system/');
+define('DIR_IMAGE', 'C:/xampp/htdocs/opencart/OpenCart/image/');
+define('DIR_STORAGE', 'C:/xampp/storage/');
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/theme/');
 define('DIR_CONFIG', DIR_SYSTEM . 'config/');
@@ -23,8 +23,8 @@ define('DIR_UPLOAD', DIR_STORAGE . 'upload/');
 // DB
 define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'localhost');
-define('DB_USERNAME', 'chxcqckfzd');
-define('DB_PASSWORD', 'f4ekgn6msV');
-define('DB_DATABASE', 'chxcqckfzd');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_DATABASE', 'opencart');
 define('DB_PORT', '3306');
 define('DB_PREFIX', 'oc_');

@@ -23,7 +23,7 @@
 <div class="cm_content" style="<?php echo $content_style; ?>;">
 <div class="row <?php if ($content_no_margin) { echo "marginless"; } ?>">
 <?php foreach($columns as $column){ ?>
-<div class="<?php echo $column['column_class']; ?> type-<?php echo $column['type']; ?> cm_column <?php if ($equal_height) { echo "eq_height"; } ?>">    
+<div class="<?php echo $column['column_class']; ?> type-<?php echo $column['type']; ?> cm_column <?php if ($equal_height) { echo "eq_height"; } ?>">
 <?php if ($column['type'] == "img") { ?>
 <!-- Banner type -->
 <?php if ($column['data2']) { ?>
@@ -63,8 +63,8 @@
     <p><img src="<?php echo $testimonial['image']; ?>" alt=""/></p>
     <?php } ?>
     <p><?php echo $testimonial['description'] ; ?></p>
-    <p><b><?php echo $testimonial['name']; ?></b><?php if ($testimonial['org']) echo ' - ' . $testimonial['org']; ?></p> 
-    </div>    
+    <p><b><?php echo $testimonial['name']; ?></b><?php if ($testimonial['org']) echo ' - ' . $testimonial['org']; ?></p>
+    </div>
 </div>
 <?php } ?>
 </div>
@@ -77,7 +77,7 @@
     </div>
 </div>
 <?php } ?>
-</div>    
+</div>
 <?php } ?>
 </div>
 </div>

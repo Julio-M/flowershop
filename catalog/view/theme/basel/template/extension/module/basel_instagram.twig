@@ -25,22 +25,18 @@
 {% if full_width %}<div class="container">{% endif %}
 
 <script>
-	(function($){
-		$(window).on('load', function(){
-			$.instagramFeed({
-				'username': "{{ username }}",
-				'container': "#instafeed{{ module }}",
-				'callback': null,
-				'styling': true,
-				'items': '{{ limit }}',
-				'margin': {{ padding }},
-				{% if resolution %}
-				'image_size': 640,
-				{% else %}
-				'image_size': 320,
-				{% endif %}
-				'on_error': console.error
-			}); 
-		});
-	})(jQuery);
+var feed = new Instafeed({
+		get: 'user',
+		userId: {{ username }},
+		accessToken: '{{ access_token }}',
+		target: 'instafeed{{ module }}',
+		limit: '{{ limit }}',
+		template: '<a href="{\{\link\}\}" target="_blank" class="item insta-item" style="padding:{{ padding/2 }}px;"><div style="position:absolute;top:{{ padding/2 }}px;right:{{ padding/2 }}px;bottom:{{ padding/2 }}px;left:{{ padding/2 }}px;background-image:url(\'{\{\image\}\}\');background-position:center center;background-size:cover;"></div><img src="catalog/view/theme/basel/image/insta-filler.png" /><span class="hover_fill" style="top:{{ padding/2 }}px;right:{{ padding/2 }}px;bottom:{{ padding/2 }}px;left:{{ padding/2 }}px;"></span></a>',
+		{% if resolution %}
+		resolution: 'standard_resolution'
+		{% else %}
+		resolution: 'low_resolution'
+		{% endif %}
+});
+feed.run();
 </script>

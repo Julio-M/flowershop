@@ -3,17 +3,17 @@
 {% if product_layout != "full-width" %}
 <style>
 .product-page .image-area {
-	{% if product_layout == "images-left" and images %} 
+	{% if product_layout == "images-left" and images %}
 		width: {{img_w + img_a_w + 20 }}px;
 	{% else %}
 		width: {{ img_w }}px;
 	{% endif %}
 }
 .product-page .main-image {
-	width:{{ img_w }}px;	
+	width:{{ img_w }}px;
 }
 .product-page .image-additional {
-	{% if product_layout == "images-left" %} 
+	{% if product_layout == "images-left" %}
 		width: {{ img_a_w }}px;
 		height: {{ img_h }}px;
 	{% else %}
@@ -21,23 +21,23 @@
 	{% endif %}
 }
 .product-page .image-additional.has-arrows {
-	{% if product_layout == "images-left" %} 
+	{% if product_layout == "images-left" %}
 		height: {{ img_h - 40 }}px;
 	{% endif %}
 }
 @media (min-width: 992px) and (max-width: 1199px) {
 .product-page .image-area {
-	{% if product_layout == "images-left" %} 
+	{% if product_layout == "images-left" %}
 		width: {{((img_w + img_a_w)/1.25 + 20) }}px;
 	{% else %}
 		width: {{ img_w/1.25 }}px;
 	{% endif %}
 }
 .product-page .main-image {
-	width:{{ img_w/1.25 }}px;	
+	width:{{ img_w/1.25 }}px;
 }
 .product-page .image-additional {
-	{% if product_layout == "images-left" %} 
+	{% if product_layout == "images-left" %}
 		width: {{ img_a_w/1.25 }}px;
 		height: {{ img_h/1.25 }}px;
 	{% else %}
@@ -55,7 +55,7 @@
   </ul>
 
 <div class="container product-layout {{ product_layout }}">
-  
+
   <div class="row">{{ column_left }}
     {% if column_left and column_right %}
     {% set class = 'col-sm-6' %}
@@ -66,25 +66,25 @@
     {% endif %}
     <div id="content" class="product-main no-min-height {{ class }}">
     {{ content_top }}
-    
+
     <div class="table product-info product-page">
-     
+
      <div class="table-cell left">
-     
+
      {% if thumb or images %}
      <div class="image-area {% if not hover_zoom %}hover-zoom-disabled{% endif %}" id="gallery">
-            
+
         {% if thumb %}
         <div class="main-image">
-        
+
         {% if price and special and sale_badge %}
         <span class="badge sale_badge"><i>{{ sale_badge }}</i></span>
         {% endif %}
-        
+
         {% if is_new %}
         <span class="badge new_badge"><i>{{ basel_text_new }}</i></span>
         {% endif %}
-		
+
 		{% if ((qty < 1) and (stock_badge_status)) %}
         <span class="badge out_of_stock_badge"><i>{{ basel_text_out_of_stock}}</i></span>
         {% endif %}
@@ -92,7 +92,7 @@
         <a class="{% if not images %}link cloud-zoom{% endif %} {% if product_layout == 'full-width' %}link{% else %}cloud-zoom{% endif %}" id="main-image" href="{{ popup }}" rel="position:'inside', showTitle: false"><img src="{{ thumb }}" title="{{ heading_title }}" alt="{{ heading_title }}" /></a>
         </div>
         {% endif %}
-		
+
         {% if images %}
         <ul class="image-additional">
         {% for image in images %}
@@ -105,19 +105,19 @@
             {% endif %}
         </ul>
         {% endif %}
-            
+
      </div> <!-- .table-cell.left ends -->
-      
+
      </div> <!-- .image-area ends -->
      {% endif %}
-     
+
     <div class="table-cell w100 right">
 	<div class="inner">
-    
+
     <div class="product-h1">
     <h1 id="page-title">{{ heading_title }}</h1>
     </div>
-    
+
     {% if review_status and (review_qty > 0) %}
     <div class="rating">
     <span class="rating_stars rating r{{ rating }}">
@@ -136,7 +136,7 @@
         <span id="special_countdown"></span>
         {% endif %}
       </ul>
-        
+
         {% if discounts %}
         <p class="discount">
         {% for discount in discounts %}
@@ -144,21 +144,21 @@
         {% endfor %}
         </p>
         {% endif %}
-      
+
       {% endif %} <!-- if price ends -->
-      
-      
+
+
       {% if meta_description_status and meta_description %}
       <p class="meta_description">{{ meta_description }}</p>
       {% endif %}
-            
-      
+
+
       <div id="product">
-            
+
             {% if options %}
             <div class="options">
             {% for option in options %}
-            
+
             {% if option.type == 'select' %}
             <div class="form-group{% if option.required %} required{% endif %} table-row">
               <div class="table-cell name">
@@ -178,7 +178,7 @@
               </div>
             </div>
             {% endif %}
-            
+
             {% if option.type == 'radio' %}
             <div class="form-group{% if option.required %} required{% endif %} table-row">
               <div class="table-cell radio-cell name">
@@ -206,7 +206,7 @@
               </div>
             </div>
             {% endif %}
-            
+
             {% if option.type == 'checkbox' %}
             <div class="form-group{% if option.required %} required{% endif %} table-row">
               <div class="table-cell checkbox-cell name">
@@ -219,7 +219,7 @@
                   <label>
                     <input type="checkbox" name="option[{{ option.product_option_id }}][]" value="{{ option_value.product_option_value_id }}" />
                     {% if option_value.image %}
-                    <img src="{{ option_value.image }}" alt="{{ option_value.name }}{% if option_value.price %}({{ option_value.price_prefix }}{{ option_value.price }}){% endif %}" data-toggle="tooltip" data-title="{{ option_value.name }}{% if option_value.price %} ({{ option_value.price_prefix }}{{ option_value.price }}){% endif %}" /> 
+                    <img src="{{ option_value.image }}" alt="{{ option_value.name }}{% if option_value.price %}({{ option_value.price_prefix }}{{ option_value.price }}){% endif %}" data-toggle="tooltip" data-title="{{ option_value.name }}{% if option_value.price %} ({{ option_value.price_prefix }}{{ option_value.price }}){% endif %}" />
                     {% endif %}
                     <span class="name">
                     {{ option_value.name }}
@@ -234,8 +234,8 @@
               </div>
             </div>
             {% endif %}
-            
-            
+
+
             {% if option.type == 'text' %}
             <div class="form-group{% if option.required %} required{% endif %} table-row">
               <div class="table-cell name">
@@ -246,7 +246,7 @@
               </div>
             </div>
             {% endif %}
-            
+
             {% if option.type == 'textarea' %}
             <div class="form-group{% if option.required %} required{% endif %} table-row">
               <div class="table-cell name">
@@ -257,7 +257,7 @@
               </div>
             </div>
             {% endif %}
-            
+
             {% if option.type == 'file' %}
             <div class="form-group{% if option.required %} required{% endif %} table-row">
               <div class="table-cell name">
@@ -269,7 +269,7 @@
               </div>
             </div>
             {% endif %}
-            
+
             {% if option.type == 'date' %}
             <div class="form-group{% if option.required %} required{% endif %} table-row">
               <div class="table-cell name">
@@ -284,7 +284,7 @@
                 </div>
             </div>
             {% endif %}
-            
+
             {% if option.type == 'datetime' %}
             <div class="form-group{% if option.required %} required{% endif %} table-row">
               <div class="table-cell name">
@@ -299,7 +299,7 @@
                 </div>
             </div>
             {% endif %}
-            
+
             {% if option.type == 'time' %}
             <div class="form-group{% if option.required %} required{% endif %} table-row">
               <div class="table-cell name">
@@ -314,11 +314,11 @@
                 </div>
             </div>
             {% endif %}
-            
+
             {% endfor %} <!-- foreach option -->
             </div>
             {% endif %}
-            
+
             {% if recurrings %}
             <hr>
             <h3>{{ text_payment_recurring }}</h3>
@@ -332,54 +332,54 @@
               <div class="help-block" id="recurring-description"></div>
             </div>
             {% endif %}
-            
+
             <div class="form-group buy catalog_hide">
 
-            <input type="number" step="1" min="{{ minimum }}" name="quantity" value="{{ minimum }}" id="input-quantity" class="form-control input-quantity" />
+            <!--<input type="number" step="1" min="{{ minimum }}" name="quantity" value="{{ minimum }}" id="input-quantity" class="form-control input-quantity" />-->
               <input type="hidden" name="product_id" value="{{ product_id }}" />
-              <button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btn btn-primary">{% if ((qty < 1) and (stock_badge_status)) %}{{ basel_text_out_of_stock }}{% else %}{{ button_cart }}{% endif %}</button>
+						<!--<button type="button" id="button-cart" data-loading-text="{{ text_loading }}" class="btn btn-primary">{% if ((qty < 1) and (stock_badge_status)) %}{{ basel_text_out_of_stock }}{% else %}{{ button_cart }}{% endif %}</button>-->
             </div>
             {% if minimum > 1 %}
             <div class="alert alert-sm alert-info"><i class="fa fa-info-circle"></i> {{ text_minimum }}</div>
             {% endif %}
-          
+
           </div> <!-- #product ends -->
 
 
-	<p class="info is_wishlist"><a onclick="wishlist.add('{{ product_id }}');"><i class="icon-heart"></i> {{ button_wishlist }}</a></p>
-	<p class="info is_compare"><a onclick="compare.add('{{ product_id }}');"><i class="icon-refresh"></i> {{ button_compare }}</a></p>
+	<!--<p class="info is_wishlist"><a onclick="wishlist.add('{{ product_id }}');"><i class="icon-heart"></i> {{ button_wishlist }}</a></p>
+	<p class="info is_compare"><a onclick="compare.add('{{ product_id }}');"><i class="icon-refresh"></i> {{ button_compare }}</a></p> -->
     {% if question_status %}
     <p class="info is_ask"><a class="to_tabs" onclick="$('a[href=\'#tab-questions\']').trigger('click'); return false;"><i class="icon-question"></i> {{ basel_button_ask }}</a></p>
     {% endif %}
-    
+
     <div class="clearfix"></div>
-    
+
     <div class="info-holder">
-    
+
       {% if price and tax %}
       <p class="info p-tax"><b>{{ text_tax }}</b> <span class="live-price-tax">{{ tax }}</span></p>
       {% endif %}
-      
+
       {% if price and points %}
       <p class="info"><b>{{ text_points }}</b> {{ points }}</p>
       {% endif %}
-      
+
       <p class="info {% if qty > 0 %}in_stock{% endif %}"><b>{{ text_stock }}</b> {{ stock }}</p>
-      
+
       {% if manufacturer %}
       <p class="info"><b>{{ text_manufacturer }}</b> <a class="hover_uline" href="{{ manufacturers }}">{{ manufacturer }}</a></p>
       {% endif %}
-      
+
       <p class="info"><b>{{ text_model }}</b> {{ model }}</p>
-      
+
       {% if reward %}
       <p class="info"><b>{{ text_reward }}</b> {{ reward }}</p>
       {% endif %}
-      
+
       {% if tags %}
       <p class="info tags"><b>{{ text_tags }}</b> &nbsp;<span>{% for tag in tags %}<a class="hover_uline" href="{{ tag.href }}">{{ tag.tag }}</a>{% endfor %}</span></p>
       {% endif %}
-      
+
       {% if basel_share_btn %}
 		{% if basel_sharing_style == 'large' %}
 			<div class="lg-share">
@@ -392,7 +392,7 @@
 			</div>
 			</div>
 		{% else %}
-			<p class="info share"><b>{{ basel_text_share }}:</b> 
+			<p class="info share"><b>{{ basel_text_share }}:</b>
 			<a class="single_share fb_share external" rel="nofollow"><i class="fa fa-facebook"></i></a>
 			<a class="single_share twitter_share external" rel="nofollow"><i class="fa fa-twitter"></i></a>
 			<a class="single_share google_share external" rel="nofollow"><i class="icon-google-plus"></i></a>
@@ -401,32 +401,32 @@
 			</p>
 		 {% endif %}
 	  {% endif %}
-     
+
      </div> <!-- .info-holder ends -->
-     
+
 	 </div> <!-- .inner ends -->
      </div> <!-- .table-cell.right ends -->
-    
+
     </div> <!-- .product-info ends -->
-    
+
 {% if full_width_tabs %}
 </div> <!-- main column ends -->
 {{ column_right }}
 </div> <!-- .row ends -->
-</div> <!-- .container ends -->    
+</div> <!-- .container ends -->
 {% endif %}
 
 {% if full_width_tabs %}
 <div class="outer-container product-tabs-wrapper">
-<div class="container">   
+<div class="container">
 {% else %}
-<div class="inline-tabs"> 
+<div class="inline-tabs">
 {% endif %}
 
 <!-- Tabs area start -->
 <div class="row">
 <div class="col-sm-12">
-  
+
   <ul class="nav nav-tabs {{ product_tabs_style }} main_tabs">
     <li class="active"><a href="#tab-description" data-toggle="tab">{{ tab_description }}</a></li>
     {% if product_tabs %}
@@ -438,19 +438,19 @@
     <li><a href="#tab-specification" data-toggle="tab">{{ tab_attribute }}</a></li>
     {% endif %}
     {% if review_status %}
-    <li><a href="#tab-review" data-toggle="tab">{{ tab_review }}</a></li>
+    <!--<li><a href="!#tab-review" data-toggle="!tab">{{ tab_review }}</a></li>-->	
     {% endif %}
     {% if question_status %}
     <li><a href="#tab-questions" data-toggle="tab">{{ basel_tab_questions }} ({{ questions_total }})</a></li>
     {% endif %}
   </ul>
-  
+
   <div class="tab-content">
-    
+
     <div class="tab-pane active" id="tab-description">
     {{ description }}
     </div>
-    
+
     {% if product_tabs %}
     {% for tab in product_tabs %}
     <div class="tab-pane" id="custom-tab-{{ tab.tab_id }}">
@@ -458,7 +458,7 @@
     </div>
     {% endfor %}
     {% endif %}
-    
+
     {% if attribute_groups %}
     <div class="tab-pane" id="tab-specification">
       <table class="table specification">
@@ -480,19 +480,19 @@
       </table>
     </div>
     {% endif %}
-    
+
     {% if question_status %}
     <div class="tab-pane" id="tab-questions">
     {{ product_questions }}
     </div>
     {% endif %}
-    
-    {% if review_status %}
+
+    <!--{% if review_status %}
     <div class="tab-pane" id="tab-review">
     <div class="row">
     <div class="col-sm-6">
     <h4><b>{{ button_reviews }}</b></h4>
-        
+
 		<div id="review">
 		{% if seo_reviews %}
 		{% for review in seo_reviews %}
@@ -521,31 +521,31 @@
     </div>
     <div class="col-sm-6 right">
       <form class="form-horizontal" id="form-review">
-        
+
         <h4 id="review-notification"><b>{{ text_write }}</b></h4>
         {% if review_guest %}
-        
+
         <div class="form-group required">
           <div class="col-sm-12 rating-stars">
             <label class="control-label">{{ entry_rating }}</label>
-            
+
             <input type="radio" value="1" name="rating" id="rating1" />
         	<label for="rating1"><i class="fa fa-star-o"></i></label>
-            
+
             <input type="radio" value="2" name="rating" id="rating2" />
         	<label for="rating2"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></label>
-            
+
             <input type="radio" value="3" name="rating" id="rating3" />
         	<label for="rating3"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></label>
-            
+
             <input type="radio" value="4" name="rating" id="rating4" />
         	<label for="rating4"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></label>
-            
+
             <input type="radio" value="5" name="rating" id="rating5" />
         	<label for="rating5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></label>
             </div>
         </div>
-        
+
         <div class="form-group required">
           <div class="col-sm-12">
             <label class="control-label" for="input-name">{{ entry_name }}</label>
@@ -559,14 +559,14 @@
             <small>{{ text_note }}</small>
           </div>
         </div>
-        
+
         <div class="form-group required">
           <div class="col-sm-12">
             {{ captcha }}
           </div>
         </div>
-        
-        <div class="buttons clearfix">
+
+     <div class="buttons clearfix">
           <div class="text-right">
           <button type="button" id="button-review" data-loading-text="{{ text_loading }}" class="btn btn-outline">{{ button_continue }}</button>
           </div>
@@ -578,8 +578,8 @@
        </div>
       </div>
     </div>
-    {% endif %}<!-- if review-status ends -->
-    
+	{% endif %}--><!-- if review-status ends -->
+
   </div> <!-- .tab-content ends -->
 </div> <!-- .col-sm-12 ends -->
 </div> <!-- .row ends -->
@@ -589,21 +589,21 @@
 </div>
 {% endif %}
 </div>
-      
+
       <!-- Related Products -->
-      
+
     {% if full_width_tabs %}
-    <div class="container">  
+    <div class="container">
     {% endif %}
-      
+
         {% if products %}
         <div class="widget widget-related">
-        
+
         <div class="widget-title">
         <p class="main-title"><span>{{ text_related }}</span></p>
         <p class="widget-title-separator"><i class="icon-line-cross"></i></p>
         </div>
-        
+
         <div class="grid grid-holder related carousel grid{{ basel_rel_prod_grid }}">
             {% for product in products %}
               {% include 'basel/template/product/single_product.twig' %}
@@ -611,11 +611,11 @@
         </div>
         </div>
         {% endif %}
-      
+
       {{ content_bottom }}
-      
+
     {% if full_width_tabs %}
-    </div>  
+    </div>
     {% endif %}
 
 
@@ -736,14 +736,14 @@ $('#button-cart').on('click', function() {
 			}
 
 				if (json.success_redirect) {
-					
+
 					location = json.success_redirect;
-				
+
 				} else if (json.success) {
-					
+
 					$('.table-cell').removeClass('has-error');
 					$('.alert, .popup-note, .basel-spinner.ajax-call, .text-danger').remove();
-				 
+
 					html = '<div class="popup-note">';
 					html += '<div class="inner">';
 					html += '<a class="popup-note-close" onclick="$(this).parent().parent().remove()">&times;</a>';
@@ -845,7 +845,7 @@ $('#review').delegate('.pagination a', 'click', function(e) {
     $('#review').load(this.href);
 
     $('#review').fadeIn(500);
-	
+
 });
 
 
@@ -955,7 +955,7 @@ vertical:false,
 verticalSwiping:false
 }
 }]
-});	
+});
 
 });
 //--></script>

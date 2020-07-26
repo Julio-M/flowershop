@@ -3,17 +3,17 @@
 <?php if ($product_layout != "full-width") { ?>
 <style>
 .product-page .image-area {
-	<?php if (($product_layout == "images-left") && $images) { ?> 
+	<?php if (($product_layout == "images-left") && $images) { ?>
 		width: <?php echo ($img_w + $img_a_w + 20); ?>px;
 	<?php } else { ?>
 		width: <?php echo $img_w; ?>px;
 	<?php } ?>
 }
 .product-page .main-image {
-	width:<?php echo $img_w; ?>px;	
+	width:<?php echo $img_w; ?>px;
 }
 .product-page .image-additional {
-	<?php if ($product_layout == "images-left") { ?> 
+	<?php if ($product_layout == "images-left") { ?>
 		width: <?php echo $img_a_w; ?>px;
 		height: <?php echo $img_h; ?>px;
 	<?php } else { ?>
@@ -21,23 +21,23 @@
 	<?php } ?>
 }
 .product-page .image-additional.has-arrows {
-	<?php if ($product_layout == "images-left") { ?> 
+	<?php if ($product_layout == "images-left") { ?>
 		height: <?php echo ($img_h - 40); ?>px;
 	<?php } ?>
 }
 @media (min-width: 992px) and (max-width: 1199px) {
 .product-page .image-area {
-	<?php if ($product_layout == "images-left") { ?> 
+	<?php if ($product_layout == "images-left") { ?>
 		width: <?php echo (($img_w + $img_a_w)/1.25 + 20); ?>px;
 	<?php } else { ?>
 		width: <?php echo $img_w/1.25; ?>px;
 	<?php } ?>
 }
 .product-page .main-image {
-	width:<?php echo $img_w/1.25; ?>px;	
+	width:<?php echo $img_w/1.25; ?>px;
 }
 .product-page .image-additional {
-	<?php if ($product_layout == "images-left") { ?> 
+	<?php if ($product_layout == "images-left") { ?>
 		width: <?php echo $img_a_w/1.25; ?>px;
 		height: <?php echo $img_h/1.25; ?>px;
 	<?php } else { ?>
@@ -55,7 +55,7 @@
   </ul>
 
 <div class="container product-layout <?php echo $product_layout; ?>">
-  
+
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -66,25 +66,25 @@
     <?php } ?>
     <div id="content" class="product-main no-min-height <?php echo $class; ?>">
     <?php echo $content_top; ?>
-    
+
     <div class="table product-info product-page">
-     
+
      <div class="table-cell left">
-     
+
      <?php if ($thumb || $images) { ?>
      <div class="image-area <?php if (!$hover_zoom) { echo "hover-zoom-disabled"; } ?>" id="gallery">
-            
+
         <?php if ($thumb) { ?>
         <div class="main-image">
-        
+
         <?php if (($price) && ($special) && ($sale_badge)) { ?>
         <span class="badge sale_badge"><i><?php echo $sale_badge; ?></i></span>
         <?php } ?>
-        
+
         <?php if (isset($is_new)) { ?>
         <span class="badge new_badge"><i><?php echo $basel_text_new; ?></i></span>
         <?php } ?>
-        
+
         <?php if (($qty < 1) && ($stock_badge_status)) { ?>
         <span class="badge out_of_stock_badge"><i><?php echo $basel_text_out_of_stock; ?></i></span>
         <?php } ?>
@@ -92,7 +92,7 @@
         <a class="<?php if (!$images) { echo "link cloud-zoom"; } else if (($product_layout == 'full-width')) { echo "link"; } else { echo "cloud-zoom"; } ?>" id="main-image" href="<?php echo $popup; ?>" rel="position:'inside', showTitle: false"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
         </div>
         <?php } ?>
-       
+
         <?php if ($images) { ?>
         <ul class="image-additional">
         <?php foreach ($images as $image) { ?>
@@ -106,20 +106,20 @@
         </ul>
 
         <?php } ?>
-            
+
      </div> <!-- .table-cell.left ends -->
      <?php } ?>
-      
+
      </div> <!-- .image-area ends -->
-     
-     
+
+
     <div class="table-cell w100 right">
 	<div class="inner">
-    
+
     <div class="product-h1">
     <h1 id="page-title"><?php echo $heading_title; ?></h1>
     </div>
-    
+
     <?php if ($review_status && ($review_qty > 0)) { ?>
     <div class="rating">
     <span class="rating_stars rating r<?php echo $rating; ?>">
@@ -138,7 +138,7 @@
         <span id="special_countdown"></span>
         <?php } ?>
       </ul>
-        
+
         <?php if ($discounts) { ?>
         <p class="discount">
         <?php foreach ($discounts as $discount) { ?>
@@ -146,23 +146,23 @@
         <?php } ?>
         </p>
         <?php } ?>
-      
+
       <?php } ?> <!-- if price ends -->
-      
-      
+
+
       <?php if ($meta_description_status && $meta_description) { ?>
       <p class="meta_description"><?php echo $meta_description; ?></p>
       <?php } ?>
-      
-      
-      
-      
+
+
+
+
       <div id="product">
-            
+
             <?php if ($options) { ?>
             <div class="options">
             <?php foreach ($options as $option) { ?>
-            
+
             <?php if ($option['type'] == 'select') { ?>
             <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?> table-row">
               <div class="table-cell name">
@@ -182,7 +182,7 @@
               </div>
             </div>
             <?php } ?>
-            
+
             <?php if ($option['type'] == 'radio') { ?>
             <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?> table-row">
               <div class="table-cell radio-cell name">
@@ -210,7 +210,7 @@
               </div>
             </div>
             <?php } ?>
-            
+
             <?php if ($option['type'] == 'checkbox') { ?>
             <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?> table-row">
               <div class="table-cell checkbox-cell name">
@@ -223,7 +223,7 @@
                   <label>
                     <input type="checkbox" name="option[<?php echo $option['product_option_id']; ?>][]" value="<?php echo $option_value['product_option_value_id']; ?>" />
                     <?php if ($option_value['image']) { ?>
-                    <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" data-toggle="tooltip" data-title="<?php echo $option_value['name']; ?><?php if ($option_value['price']) { ?> (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)<?php } ?>" /> 
+                    <img src="<?php echo $option_value['image']; ?>" alt="<?php echo $option_value['name'] . ($option_value['price'] ? ' ' . $option_value['price_prefix'] . $option_value['price'] : ''); ?>" data-toggle="tooltip" data-title="<?php echo $option_value['name']; ?><?php if ($option_value['price']) { ?> (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)<?php } ?>" />
                     <?php } ?>
                     <span class="name">
                     <?php echo $option_value['name']; ?>
@@ -238,8 +238,8 @@
               </div>
             </div>
             <?php } ?>
-            
-            
+
+
             <?php if ($option['type'] == 'text') { ?>
             <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?> table-row">
               <div class="table-cell name">
@@ -250,7 +250,7 @@
               </div>
             </div>
             <?php } ?>
-            
+
             <?php if ($option['type'] == 'textarea') { ?>
             <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?> table-row">
               <div class="table-cell name">
@@ -261,7 +261,7 @@
               </div>
             </div>
             <?php } ?>
-            
+
             <?php if ($option['type'] == 'file') { ?>
             <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?> table-row">
               <div class="table-cell name">
@@ -273,7 +273,7 @@
               </div>
             </div>
             <?php } ?>
-            
+
             <?php if ($option['type'] == 'date') { ?>
             <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?> table-row">
               <div class="table-cell name">
@@ -288,7 +288,7 @@
                 </div>
             </div>
             <?php } ?>
-            
+
             <?php if ($option['type'] == 'datetime') { ?>
             <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?> table-row">
               <div class="table-cell name">
@@ -303,7 +303,7 @@
                 </div>
             </div>
             <?php } ?>
-            
+
             <?php if ($option['type'] == 'time') { ?>
             <div class="form-group<?php echo ($option['required'] ? ' required' : ''); ?> table-row">
               <div class="table-cell name">
@@ -318,11 +318,11 @@
                 </div>
             </div>
             <?php } ?>
-            
+
             <?php } ?> <!-- foreach option -->
             </div>
             <?php } ?>
-            
+
             <?php if ($recurrings) { ?>
             <hr>
             <h3><?php echo $text_payment_recurring ?></h3>
@@ -336,7 +336,7 @@
               <div class="help-block" id="recurring-description"></div>
             </div>
             <?php } ?>
-            
+
             <div class="form-group buy catalog_hide">
 
             <input type="number" step="1" min="<?php echo $minimum; ?>" name="quantity" value="<?php echo $minimum; ?>" id="input-quantity" class="form-control input-quantity" />
@@ -346,7 +346,7 @@
             <?php if ($minimum > 1) { ?>
             <div class="alert alert-sm alert-info"><i class="fa fa-info-circle"></i> <?php echo $text_minimum; ?></div>
             <?php } ?>
-          
+
           </div><!-- #product ends -->
 
 
@@ -355,35 +355,35 @@
     <?php if (!empty($question_status)) { ?>
     <p class="info is_ask"><a class="to_tabs" onclick="$('a[href=\'#tab-questions\']').trigger('click'); return false;"><i class="icon-question"></i> <?php echo $basel_button_ask; ?></a></p>
     <?php } ?>
-    
+
     <div class="clearfix"></div>
-    
+
     <div class="info-holder">
-    
+
       <?php if ($price && $tax) { ?>
       <p class="info p-tax"><b><?php echo $text_tax; ?></b> <span class="live-price-tax"><?php echo $tax; ?></span></p>
       <?php } ?>
-      
+
       <?php if ($price && $points) { ?>
       <p class="info"><b><?php echo $text_points; ?></b> <?php echo $points; ?></p>
       <?php } ?>
-      
+
       <p class="info <?php if ($qty > 0) { echo "in_stock"; } ?>"><b><?php echo $text_stock; ?></b> <?php echo $stock; ?></p>
-      
+
       <?php if ($manufacturer) { ?>
       <p class="info"><b><?php echo $text_manufacturer; ?></b> <a class="hover_uline" href="<?php echo $manufacturers; ?>"><?php echo $manufacturer; ?></a></p>
       <?php } ?>
-      
+
       <p class="info"><b><?php echo $text_model; ?></b> <?php echo $model; ?></p>
-      
+
       <?php if ($reward) { ?>
       <p class="info"><b><?php echo $text_reward; ?></b> <?php echo $reward; ?></p>
       <?php } ?>
-      
+
       <?php if ($tags) { ?>
       <p class="info tags"><b><?php echo $text_tags; ?></b> &nbsp;<span><?php foreach ($tags as $tag) { ?><a class="hover_uline" href="<?php echo $tag['href']; ?>"><?php echo $tag['tag']; ?></a><?php } ?></span></p>
       <?php } ?>
-      
+
       <?php if ($basel_share_btn) { ?>
         <?php if ($basel_sharing_style == 'large') { ?>
             <div class="lg-share">
@@ -396,42 +396,42 @@
             </div>
             </div>
         <?php } else { ?>
-            <p class="info share"><b><?php echo $basel_text_share; ?>:</b> 
+            <p class="info share"><b><?php echo $basel_text_share; ?>:</b>
             <a class="single_share fb_share external" rel="nofollow"><i class="fa fa-facebook"></i></a>
             <a class="single_share twitter_share external" rel="nofollow"><i class="fa fa-twitter"></i></a>
             <a class="single_share google_share external" rel="nofollow"><i class="icon-google-plus"></i></a>
             <a class="single_share pinterest_share external" rel="nofollow"><i class="fa fa-pinterest"></i></a>
             <a class="single_share vk_share external" rel="nofollow"><i class="fa fa-vk"></i></a>
             </p>
-        <?php } ?>      
+        <?php } ?>
       <?php } ?>
-     
+
      </div> <!-- .info-holder ends -->
-     
+
 	 </div> <!-- .inner ends -->
      </div> <!-- .table-cell.right ends -->
-    
+
     </div> <!-- .product-info ends -->
-    
+
 <?php if ($full_width_tabs) { ?>
 </div> <!-- main column ends -->
 <?php echo $column_right; ?>
 </div> <!-- .row ends -->
-</div> <!-- .container ends -->    
+</div> <!-- .container ends -->
 <?php } ?>
 
 
 <?php if ($full_width_tabs) { ?>
 <div class="outer-container product-tabs-wrapper">
-<div class="container">   
+<div class="container">
 <?php } else { ?>
-<div class="inline-tabs"> 
+<div class="inline-tabs">
 <?php } ?>
 
 <!-- Tabs area start -->
 <div class="row">
 <div class="col-sm-12">
-  
+
   <ul class="nav nav-tabs <?php echo $product_tabs_style; ?> main_tabs">
     <li class="active"><a href="#tab-description" data-toggle="tab"><?php echo $tab_description; ?></a></li>
     <?php if ($product_tabs) { ?>
@@ -449,13 +449,13 @@
     <li><a href="#tab-questions" data-toggle="tab"><?php echo $basel_tab_questions; ?> (<?php echo $questions_total; ?>)</a></li>
     <?php } ?>
   </ul>
-  
+
   <div class="tab-content">
-    
+
     <div class="tab-pane active" id="tab-description">
     <?php echo $description; ?>
     </div>
-    
+
     <?php if ($product_tabs) { ?>
     <?php foreach ($product_tabs as $tab) { ?>
     <div class="tab-pane" id="custom-tab-<?php echo $tab['tab_id']; ?>">
@@ -463,7 +463,7 @@
     </div>
     <?php } ?>
     <?php } ?>
-    
+
     <?php if ($attribute_groups) { ?>
     <div class="tab-pane" id="tab-specification">
       <table class="table specification">
@@ -485,13 +485,13 @@
       </table>
     </div>
     <?php } ?>
-    
+
     <?php if (!empty($question_status)) { ?>
     <div class="tab-pane" id="tab-questions">
     <?php echo $product_questions; ?>
     </div>
     <?php } ?>
-    
+
     <?php if ($review_status) { ?>
     <div class="tab-pane" id="tab-review">
     <div class="row">
@@ -500,7 +500,7 @@
 
         <div id="review">
 		<?php if ($seo_reviews) { ?>
-		
+
         <?php foreach ($seo_reviews as $review) { ?>
 		<div class="table">
 		<div class="table-cell"><i class="fa fa-user"></i></div>
@@ -516,44 +516,44 @@
 		</div>
 		</div>
 		<?php } ?>
-		
+
         <?php if ($pagination) { ?>
 		<div class="pagination-holder"><?php echo $pagination; ?></div>
 		<?php } ?>
-        
+
         <?php } else { ?>
 		<p><?php echo $text_no_reviews; ?></p>
         <?php } ?>
 		</div>
-        
+
     </div>
     <div class="col-sm-6 right">
       <form class="form-horizontal" id="form-review">
-        
+
         <h4 id="review-notification"><b><?php echo $text_write; ?></b></h4>
         <?php if ($review_guest) { ?>
-        
+
         <div class="form-group required">
           <div class="col-sm-12 rating-stars">
             <label class="control-label"><?php echo $entry_rating; ?></label>
-            
+
             <input type="radio" value="1" name="rating" id="rating1" />
         	<label for="rating1"><i class="fa fa-star-o"></i></label>
-            
+
             <input type="radio" value="2" name="rating" id="rating2" />
         	<label for="rating2"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></label>
-            
+
             <input type="radio" value="3" name="rating" id="rating3" />
         	<label for="rating3"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></label>
-            
+
             <input type="radio" value="4" name="rating" id="rating4" />
         	<label for="rating4"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></label>
-            
+
             <input type="radio" value="5" name="rating" id="rating5" />
         	<label for="rating5"><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></label>
             </div>
         </div>
-        
+
         <div class="form-group required">
           <div class="col-sm-12">
             <label class="control-label" for="input-name"><?php echo $entry_name; ?></label>
@@ -567,13 +567,13 @@
             <small><?php echo $text_note; ?></small>
           </div>
         </div>
-        
+
         <div class="form-group required">
           <div class="col-sm-12">
             <?php echo $captcha; ?>
           </div>
         </div>
-        
+
         <div class="buttons clearfix">
           <div class="text-right">
           <button type="button" id="button-review" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-outline"><?php echo $button_continue; ?></button>
@@ -587,7 +587,7 @@
       </div>
     </div>
     <?php } ?> <!-- if review-status ends -->
-    
+
   </div> <!-- .tab-content ends -->
 </div> <!-- .col-sm-12 ends -->
 </div> <!-- .row ends -->
@@ -597,21 +597,21 @@
 </div>
 <?php } ?>
 </div>
-      
+
       <!-- Related Products -->
-      
+
     <?php if ($full_width_tabs) { ?>
-    <div class="container">  
+    <div class="container">
     <?php } ?>
-      
+
         <?php if ($products) { ?>
         <div class="widget widget-related">
-        
+
         <div class="widget-title">
         <p class="main-title"><span><?php echo $text_related; ?></span></p>
         <p class="widget-title-separator"><i class="icon-line-cross"></i></p>
         </div>
-        
+
         <div class="grid grid-holder related carousel grid<?php echo $basel_rel_prod_grid; ?>">
             <?php foreach ($products as $product) { ?>
               <?php require('catalog/view/theme/basel/template/product/single_product.tpl'); ?>
@@ -619,12 +619,12 @@
         </div>
         </div>
         <?php } ?>
-      
-      
+
+
       <?php echo $content_bottom; ?>
-      
+
     <?php if ($full_width_tabs) { ?>
-    </div>  
+    </div>
     <?php } ?>
 
 
@@ -745,14 +745,14 @@ $('#button-cart').on('click', function() {
 			}
 
 				if (json['success_redirect']) {
-					
+
 					location = json['success_redirect'];
-				
+
 				} else if (json['success']) {
-					
+
 					$('.table-cell').removeClass('has-error');
 					$('.alert, .popup-note, .basel-spinner.ajax-call, .text-danger').remove();
-				 
+
 					html = '<div class="popup-note">';
 					html += '<div class="inner">';
 					html += '<a class="popup-note-close" onclick="$(this).parent().parent().remove()">&times;</a>';
@@ -854,7 +854,7 @@ $('#review').delegate('.pagination a', 'click', function(e) {
     $('#review').load(this.href);
 
     $('#review').fadeIn(500);
-	
+
 });
 
 
@@ -964,7 +964,7 @@ vertical:false,
 verticalSwiping:false
 }
 }]
-});	
+});
 
 });
 //--></script>

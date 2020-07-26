@@ -39,7 +39,7 @@ class ControllerExtensionModuleDigitalElephantFilterGetProduct extends Controlle
         $data['wishlist_products'] = $this->getWishlistProducts();
 
         $data['cart_products'] = $this->getCartProducts();
-
+		
 		// RTL support
 		$data['direction'] = $this->language->get('direction');
 		if ($this->language->get('direction') == 'rtl') { $data['tooltip_align'] = 'right'; } else { $data['tooltip_align'] = 'left'; }
@@ -126,7 +126,7 @@ class ControllerExtensionModuleDigitalElephantFilterGetProduct extends Controlle
     }
 
     private function getProducts($data_filter) {
-
+		
         $results = $this->model_extension_module_digitalElephantFilter->getProducts($data_filter);
 
         $products = array();
@@ -146,7 +146,7 @@ class ControllerExtensionModuleDigitalElephantFilterGetProduct extends Controlle
             } else {
                 $image = $this->model_tool_image->resize('placeholder.png', $image_width, $image_height);
             }
-
+			
 			$images = $this->model_catalog_product->getProductImages($result['product_id']);
 			if(isset($images[0]['image']) && !empty($images[0]['image'])){
 			$images =$images[0]['image'];
@@ -165,30 +165,30 @@ class ControllerExtensionModuleDigitalElephantFilterGetProduct extends Controlle
             } else {
                 $special = false;
             }
-
+			
 			$image2 = $this->model_catalog_product->getProductImages($result['product_id']);
 			if(isset($image2[0]['image']) && !empty($image2[0]['image']) && $this->config->get('basel_thumb_swap')){
 				$image2 = $image2[0]['image'];
 			} else {
 				$image2 = false;
 			}
-
+			
 			if ( (float)$result['special'] && ($this->config->get('salebadge_status')) ) {
 			if ($this->config->get('salebadge_status') == '2') {
 				$sale_badge = '-' . number_format(((($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')))-($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax'))))/(($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')))/100)), 0, ',', '.') . '%';
 			} else {
 				$sale_badge = $this->language->get('basel_text_sale');
-			}
+			}		
 			} else {
 				$sale_badge = false;
 			}
-
+		
 			if (strtotime($result['date_available']) > strtotime('-' . $this->config->get('newlabel_status') . ' day')) {
 				$is_new = true;
 			} else {
 				$is_new = false;
 			}
-
+			
 			if ((float)$result['special']) {
 				$date_end = $this->model_extension_basel_basel->getSpecialEndDate($result['product_id']);
 			} else {
