@@ -14,7 +14,7 @@ $caret = "<i class='fa fa-angle-down'></i>";
 }
 if($row['new_window']) $target = ' external';
 if(!isset($row['name'][$lang_id])) $row['name'][$lang_id] = '---';
-if ($row['icon'] && (strpos($row['icon'], 'no_image') === false)) $submenu_bg_img = 'background-image:url(\'' . $row['icon'] . '\');background-position:'. $row['position'] .';';
+if ($row['icon'] && (strpos($row['icon'], 'no_image') === false)) $submenu_bg_img = 'background-image:url(\'' . $row['icon'] . '\');background-position:'. $row['position'] .';'; 
 ?>
 <!-- Top level items -->
 <li class="<?php echo $class; ?>">
@@ -92,7 +92,7 @@ $row_fluid = $row_fluid+$submenu['content_width'];
 </div>
 <div class="caption">
 <a class="product-name" href="<?php echo $submenu['product']['link']; ?>"><?php echo $submenu['product']['name']; ?></a>
-<?php if ($submenu['product']['rating']) { ?>
+<?php if ($submenu['product']['rating']) { ?>      
 <div class="rating">
 <span class="rating_stars rating r<?php echo $submenu['product']['rating']; ?>">
 <i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>
@@ -121,13 +121,13 @@ $(".sale-counter.mm.id<?php echo $submenu['product']['id']; ?>").countdown({
 date: "<?php echo $submenu['product']['sale_end_date']; ?>",
 render: function(data) {
 $(this.el).html(
-"<div>" +
-data.days + "<i><?php echo $basel_text_days; ?></i></div><div>" +
-data.hours + " <i><?php echo $basel_text_hours; ?></i></div><div>" +
-data.min + " <i><?php echo $basel_text_mins; ?></i></div><div>" +
+"<div>" + 
+data.days + "<i><?php echo $basel_text_days; ?></i></div><div>" + 
+data.hours + " <i><?php echo $basel_text_hours; ?></i></div><div>" + 
+data.min + " <i><?php echo $basel_text_mins; ?></i></div><div>" + 
 data.sec + " <i><?php echo $basel_text_secs; ?></i></div>");
-}
-});
+} 
+}); 
 });
 </script>
 <?php } ?>

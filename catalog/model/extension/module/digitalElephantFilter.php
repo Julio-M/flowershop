@@ -475,6 +475,8 @@ class ModelExtensionModuleDigitalElephantFilter extends Model
 
     private function generalizeProducts($data)
     {
+	$this->db->query("SET SQL_BIG_SELECTS=1");
+
         $sql = "SELECT "
             . "p.product_id, "
             . "(SELECT AVG(rating) AS total FROM " . DB_PREFIX . "review "

@@ -57,12 +57,12 @@
     </div>
     <?php } ?>
 </div>
-<div class="table-cell w40 shortcuts text-right">
+<div class="table-cell w40 shortcuts text-right"> 
    <div class="font-zero">
     <?php if ($header_login) { ?>
         <div class="shortcut-wrapper sign-in hidden-sx hidden-sm hidden-xs">
         <?php if ($logged) { ?>
-        <a class="anim-underline" href="<?php echo $account; ?>"><?php echo $text_account; ?></a> &nbsp;/&nbsp;
+        <a class="anim-underline" href="<?php echo $account; ?>"><?php echo $text_account; ?></a> &nbsp;/&nbsp; 
         <a class="anim-underline" href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a>
         <?php } else { ?>
         <a class="anim-underline" href="<?php echo $login; ?>"><?php echo $text_login; ?> / <?php echo $text_register; ?></a>
