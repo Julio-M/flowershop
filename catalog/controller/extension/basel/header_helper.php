@@ -9,31 +9,31 @@
 	}
 	// Cart Items
 	$data['cart_items'] = $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0);
-	
+
 	// Cart Total
 	$data['cart_amount'] = $this->load->controller('extension/basel/basel_features/total_amount');
-	
+
 	// Language/Currency Title
 	$data['lang_curr_title'] = $this->load->controller('extension/basel/basel_features/lang_curr_title');
 	$lang_id = $this->config->get('config_language_id');
-	
+
 	// Basel Search
 	$data['basel_search'] = $this->load->controller('extension/basel/basel_features/basel_search');
-	
+
 	// Default menu with 3 levels
 	$data['default_menu'] = $this->load->controller('extension/basel/default_menu');
-	
+
 	// Top Module Position
 	if ($this->config->get('theme_default_directory') == 'basel') {
 	$data['position_top'] = $this->load->controller('extension/basel/position_top');
 		if ($this->config->get('config_maintenance')) {
 		$this->user = new Cart\User($this->registry);
-		if (!$this->user->isLogged()){ 
+		if (!$this->user->isLogged()){
 		$data['position_top'] = false;
 		}
 		}
 	}
-	
+
 	// Datas
 	$data['basel_header'] = $this->config->get('basel_header');
 	$promo_message = $this->config->get('basel_promo');
@@ -51,12 +51,12 @@
 	$data['header_login'] = $this->config->get('header_login');
 	$data['header_search'] = $this->config->get('header_search');
 	$data['basel_search_scheme'] = 'dark-search';
-	
+
 	$data['use_custom_links'] = $this->config->get('use_custom_links');
 	if ($this->config->get('use_custom_links')) {
 	$basel_links = $this->config->get('basel_links');
 	$data['basel_links'] = array();
-	function sortlinks($a, $b) {return strcmp($a['sort'], $b['sort']);} usort($basel_links, 'sortlinks');		
+	function sortlinks($a, $b) {return strcmp($a['sort'], $b['sort']);} usort($basel_links, 'sortlinks');
 		foreach ($basel_links as $basel_link) {
 			if(isset($basel_link['text'][$lang_id])) {
 			$data['basel_links'][] = array(
@@ -71,11 +71,11 @@
 	// Custom CSS
 	$data['basel_custom_css_status'] = $this->config->get('basel_custom_css_status');
 	$data['basel_custom_css'] = html_entity_decode($this->config->get('basel_custom_css'), ENT_QUOTES, 'UTF-8');
-		
+
 	// Custom Javascript
 	$data['basel_custom_js_status'] = $this->config->get('basel_custom_js_status');
 	$data['basel_custom_js'] = html_entity_decode($this->config->get('basel_custom_js'), ENT_QUOTES, 'UTF-8');
-	
+
 	// Menu Management
 	$data['primary_menu'] = $this->config->get('primary_menu');
 	$data['secondary_menu'] = $this->config->get('secondary_menu');
@@ -104,7 +104,7 @@
 		$data['secondary_menu_desktop'] = $this->model_extension_basel_basel_megamenu->getMenu($this->config->get('secondary_menu'), $mobile = false);
 		$data['secondary_menu_mobile'] = $this->model_extension_basel_basel_megamenu->getMenu($this->config->get('secondary_menu'), $mobile = true);
 	}
-	
+
 	// Body Class
 	$data['basel_body_class'] = '';
 	$data['basel_body_class'] .= ' product-style' . $this->config->get('basel_list_style');
@@ -122,7 +122,7 @@
 	if ($this->config->get('basel_main_layout')) $data['basel_body_class'] .= ' boxed-layout';
 	if ($this->config->get('basel_content_width')) $data['basel_body_class'] .= ' ' . $this->config->get('basel_content_width');
 	if ($this->config->get('basel_widget_title_style')) $data['basel_body_class'] .= ' widget-title-style' . $this->config->get('basel_widget_title_style');
-	
+
 	// Title styles
 	if (isset($this->request->get['route'])) {
 	$route = (string)$this->request->get['route'];
@@ -142,7 +142,7 @@
 		$data['basel_body_class'] .= ' ' . $this->config->get('basel_titles_default');
 	}
 	}
-	
+
 	// For page specific css
 	if ((float)VERSION >= 3.0) {
 	if (isset($this->request->get['route'])) {
@@ -162,7 +162,7 @@
 		$data['class'] = 'common-home';
 	}
 	}
-	
+
 	// Top promotion message
 	$data['notification_status'] = false;
 	$data['top_promo_width'] = $this->config->get('basel_top_promo_width');
@@ -175,7 +175,7 @@
 	if (($this->config->get('basel_top_promo_status')) && (!isset($_COOKIE['basel_top_promo']))) {
 	$data['notification_status'] = true;
 	}
-	
+
 	// Mandatory CSS
 	if ($this->cache->get('basel_mandatory_css_store_' . $this->config->get('config_store_id'))) {
 		$data['basel_mandatory_css'] = $this->cache->get('basel_mandatory_css_store_' . $this->config->get('config_store_id'));
@@ -192,8 +192,8 @@
 		$madatory_css .= '#logo img {max-width:' . $this->config->get('logo_maxwidth') . 'px;}';
 		$this->cache->set('basel_mandatory_css_store_' . $this->config->get('config_store_id'), $madatory_css);
 		$data['basel_mandatory_css'] = $this->cache->get('basel_mandatory_css_store_' . $this->config->get('config_store_id'));
-	}	
-	
+	}
+
 	// Custom colors
 	if ($this->config->get('basel_design_status')) {
 	$data['basel_styles_status'] = $this->config->get('basel_design_status');
@@ -227,7 +227,7 @@
 		$styles .= '.title_in_bc .breadcrumb-holder, .title_in_bc .breadcrumb-holder .basel-back-btn {color:' . $this->config->get('basel_bc_color') . ';}';
 		$styles .= '.title_in_bc .basel-back-btn>i,.title_in_bc .basel-back-btn>i:after {background-color:' . $this->config->get('basel_bc_color') . ';}';
 		if ($this->config->get('basel_bc_bg_img')) {
-		$styles .= '.title_in_bc .breadcrumb-holder {background-position:' . $this->config->get('basel_bc_bg_img_pos') . ';background-repeat:' . $this->config->get('basel_bc_bg_img_repeat') . ';background-size:' . $this->config->get('basel_bc_bg_img_size') . ';background-attachment:' . $this->config->get('basel_bc_bg_img_att') . ';background-image:url(' . $server . 'image/' . $this->config->get('basel_bc_bg_img') . ');}';}		
+		$styles .= '.title_in_bc .breadcrumb-holder {background-position:' . $this->config->get('basel_bc_bg_img_pos') . ';background-repeat:' . $this->config->get('basel_bc_bg_img_repeat') . ';background-size:' . $this->config->get('basel_bc_bg_img_size') . ';background-attachment:' . $this->config->get('basel_bc_bg_img_att') . ';background-image:url(' . $server . 'image/' . $this->config->get('basel_bc_bg_img') . ');}';}
 		$styles .= '.btn-primary, a.btn-primary,.btn-neutral {background-color:' . $this->config->get('basel_default_btn_bg') . ';color:' . $this->config->get('basel_default_btn_color') . ';}';
 		$styles .= '.btn-primary:hover,.btn-primary.active,.btn-primary:focus,.btn-default:hover,.btn-default.active,.btn-default:focus {background-color:' . $this->config->get('basel_default_btn_bg_hover') . '!important;color:' . $this->config->get('basel_default_btn_color_hover') . ' !important;}';
 		$styles .= '.btn-contrast-outline {border-color:' . $this->config->get('basel_contrast_btn_bg') . ';color:' . $this->config->get('basel_contrast_btn_bg') . ';}';
@@ -247,7 +247,7 @@
 		$data['basel_styles_cache'] = $this->cache->get('basel_styles_cache_store_' . $this->config->get('config_store_id'));
 		}
 	}
-	
+
 	// Custom Fonts
 	if ($this->config->get('basel_typo_status')) {
 	$data['basel_typo_status'] = $this->config->get('basel_typo_status');
@@ -280,14 +280,14 @@
 	$font_styles .= '.title_in_bc .login-area h2, .panel-body h2, h3.lined-title.lg, .grid1 .single-blog .blog-title, .grid2 .single-blog .blog-title {font-size:' . $this->config->get('headings_size_lg') . ';}';
 	$font_styles .= 'h1, .product-info .table-cell.right h1#page-title {font-family:' . $this->config->get('h1_inline_fam') . ';font-size:' . $this->config->get('h1_inline_size') . ';font-weight:' . $this->config->get('h1_inline_weight') . ';text-transform:' . $this->config->get('h1_inline_trans') . ';letter-spacing:' . $this->config->get('h1_inline_ls') . ';}';
 	$font_styles .= '.title_in_bc .breadcrumb-holder #title-holder {font-family:' . $this->config->get('h1_breadcrumb_fam') . ';}';
-	
+
 	$font_styles .= '.title_in_bc .breadcrumb-holder #title-holder #page-title, .title_in_bc.tall_height_bc .breadcrumb-holder #title-holder #page-title, .title_in_bc.extra_tall_height_bc .breadcrumb-holder #title-holder #page-title {font-size:' . $this->config->get('h1_breadcrumb_size') . ';font-weight:' . $this->config->get('h1_breadcrumb_weight') . ';text-transform:' . $this->config->get('h1_breadcrumb_trans') . ';letter-spacing:' . $this->config->get('h1_breadcrumb_ls') . ';}';
 	$font_styles .= '.widget .widget-title .main-title {font-family:' . $this->config->get('widget_lg_fam') . ';font-size:' . $this->config->get('widget_lg_size') . ';font-weight:' . $this->config->get('widget_lg_weight') . ';text-transform:' . $this->config->get('widget_lg_trans') . ';letter-spacing:' . $this->config->get('widget_lg_ls') . ';}';
 	$font_styles .= '.lang-curr-wrapper h4, .column .widget .widget-title .main-title, #footer h5, .dropdown-inner h4.column-title b, .blog_post .section-title {font-family:' . $this->config->get('widget_sm_fam') . ';font-size:' . $this->config->get('widget_sm_size') . ';font-weight:' . $this->config->get('widget_sm_weight') . ';text-transform:' . $this->config->get('widget_sm_trans') . ';letter-spacing:' . $this->config->get('widget_sm_ls') . ';}';
 	$font_styles .= '.main-menu:not(.vertical) > ul > li > a > .top {font-family:' . $this->config->get('menu_font_fam') . ';font-size:' . $this->config->get('menu_font_size') . ';font-weight:' . $this->config->get('menu_font_weight') . ';text-transform:' . $this->config->get('menu_font_trans') . ';letter-spacing:' . $this->config->get('menu_font_ls') . ';}';
 	$this->cache->set('basel_fonts_cache_store_' . $this->config->get('config_store_id'), $font_styles);
 	$data['basel_fonts_cache'] = $this->cache->get('basel_fonts_cache_store_' . $this->config->get('config_store_id'));
-	} 
+	}
 	} else {
 	$this->document->addStyle('//fonts.googleapis.com/css?family=Karla:400,400i,700,700i%7CLora:400,400i');
 	}
