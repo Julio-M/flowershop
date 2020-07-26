@@ -22,8 +22,8 @@ define('DIR_UPLOAD', DIR_STORAGE . 'upload/');
 
 // DB
 define('DB_DRIVER', 'mysqli');
-define('DB_HOSTNAME', 'https://opencart-447800-1402268.cloudwaysapps.com/');
-define('DB_USERNAME', 'localhost');
+define('DB_HOSTNAME', 'localhost');
+define('DB_USERNAME', 'chxcqckfzd');
 define('DB_PASSWORD', 'f4ekgn6msV');
 define('DB_DATABASE', 'chxcqckfzd');
 define('DB_PORT', '3306');
