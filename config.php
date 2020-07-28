@@ -3,7 +3,7 @@
 define('HTTP_SERVER', 'http://opencart-447800-1402268.cloudwaysapps.com/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://opencart-447800-1402268.cloudwaysapps.com/');
+define('HTTPS_SERVER', 'https://opencart-447800-1402268.cloudwaysapps.com/');
 
 
 // DIR
