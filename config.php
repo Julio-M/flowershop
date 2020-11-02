@@ -10,7 +10,7 @@ define('HTTPS_SERVER', 'http://opencart-496918-1571105.cloudwaysapps.com/');
 define('DIR_APPLICATION', '/home/496918.cloudwaysapps.com/pmbucdkewq/public_html/catalog/');
 define('DIR_SYSTEM', '/home/496918.cloudwaysapps.com/pmbucdkewq/public_html/system/');
 define('DIR_IMAGE', '/home/496918.cloudwaysapps.com/pmbucdkewq/public_html/image/');
-define('DIR_STORAGE', '/home/496918.cloudwaysapps.com/pmbucdkewq/public_html/system/storage/');
+define('DIR_STORAGE', '/home/496918.cloudwaysapps.com/pmbucdkewq/public_html/storage/');
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/theme/');
 define('DIR_CONFIG', DIR_SYSTEM . 'config/');
